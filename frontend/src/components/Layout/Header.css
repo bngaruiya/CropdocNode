@@ -1,0 +1,22 @@
+#wrapper .view {
+  min-height: 50vh !important;
+  height: unset !important;
+  max-height: 100vh;
+}
+
+.bg-img {
+  background-image: url("../../assets/maizefarm.jpg");
+  background-size: cover;
+}
+
+.tag {
+  max-width: 350px;
+}
+
+.authlinks {
+  margin-bottom: 60px;
+}
+
+.navbar-toggler-icon {
+  color: purple;
+}
