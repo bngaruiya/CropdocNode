@@ -1,0 +1,36 @@
+.section {
+  padding: 70px 0 20px 0;
+  text-align: center;
+}
+.title {
+  color: #3c4858;
+  margin: 1.75rem 0 0.5rem;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: "Roboto Slab", "Times New Roman", serif;
+  display: inline;
+  position: relative;
+  min-height: 32px;
+  min-height: 32px;
+}
+
+.titlehead {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.product-container {
+  z-index: 12;
+  color: #ffffff;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 10px auto 0;
+}
+
+.description {
+  color: #999;
+}
