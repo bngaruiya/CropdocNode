@@ -137,7 +137,9 @@ class Header extends React.Component {
             transparent
           >
             <MDBContainer>
-              <MDBNavbarBrand>
+              <MDBNavbarBrand
+                style={{ paddingTop: "0px", paddingBottom: "0px" }}
+              >
                 <MDBNavLink to='/'>
                   <img src={Logo} alt='MDB' className='white-text' />
                 </MDBNavLink>
@@ -167,7 +169,7 @@ class Header extends React.Component {
           <MDBMask className='rgba-black-light' />
           <MDBContainer
             className='d-flex justify-content-center align-items-center'
-            style={{ height: "100%", width: "100%", paddingTop: "7rem" }}
+            style={{ height: "100%", width: "100%", paddingTop: "4rem" }}
           >
             <MDBRow>
               <MDBCol md='12' className='mb-4 white-text text-center'>

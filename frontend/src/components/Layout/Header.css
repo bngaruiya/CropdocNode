@@ -1,7 +1,6 @@
-#wrapper .view {
+#wrapper {
   min-height: 50vh !important;
   height: unset !important;
-  max-height: 100vh;
 }
 
 .bg-img {
@@ -11,10 +10,6 @@
 
 .tag {
   max-width: 350px;
-}
-
-.authlinks {
-  margin-bottom: 60px;
 }
 
 .navbar-toggler-icon {

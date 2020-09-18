@@ -8,11 +8,16 @@ import store from "./store";
 import Header from "./components/Layout/Header";
 import Footer from "./components/Layout/Footer";
 import Home from "./components/Home/Home";
+import Uploads from "./components/Uploads/Uploads";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Logout from "./components/Auth/Logout";
+import { loadUser } from "./actions/auth";
 
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
   render() {
     return (
       <Provider store={store}>
@@ -22,6 +27,7 @@ class App extends Component {
             <div className='app-container main mainRaised'>
               <Switch>
                 <Route exact path='/' component={Home} />
+                <Route exact path='/uploads' component={Uploads} />
                 <Route exact path='/register' component={Register} />
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/logout' component={Logout} />
