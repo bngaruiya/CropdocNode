@@ -23,13 +23,14 @@ const upload = multer({
   storage: multerS3({
     acl: 'public-read',
     s3,
-    bucket: 'cropdoc',
+    bucket: process.env.S3_BUCKET,
     metadata: function (req, file, cb) {
-      cb(null, { fieldName: 'TESTING_METADATA' });
+      cb(null, { fieldName: file.originalname });
     },
     key: function (req, file, cb) {
       const prefix = req.body.prediction;
-      const path = `${prefix}/` + Date.now().toString() + file.originalname;
+      const path =
+        `${prefix}/` + Date.now().toString() + '_' + file.originalname;
       cb(null, path);
     },
   }),

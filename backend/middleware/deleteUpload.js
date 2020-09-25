@@ -9,7 +9,7 @@ const s3 = new aws.S3({
 const deleteS3Upload = (upload) => {
   const key = upload.imageUrl.split('.com/')[1];
   let params = {
-    Bucket: process.env.BUCKET,
+    Bucket: process.env.S3_BUCKET,
     Key: key,
   };
   s3.deleteObject(params, (err, data) => {

@@ -4,6 +4,7 @@ const utils = require('../utils/utils');
 const jwt = require('jsonwebtoken');
 
 exports.authUser = (req, res, next) => {
+  console.log(req.headers);
   if (req.headers && req.headers.authorization) {
     const authorization = req.headers.authorization.split(' ')[1];
     console.log(authorization);
@@ -22,45 +23,51 @@ exports.authUser = (req, res, next) => {
       });
     });
   }
-  console.log(req);
 };
 
 exports.signup = (req, res, next) => {
+  console.log(req.body);
   const { firstName, lastName, email, password } = req.body;
-  User.findOne({ email: email }).then((user) => {
-    if (!user) {
-      bcrypt.hash(password, 10).then((hash) => {
-        if (hash) {
-          // Insert user into db
-          const newUser = new User({
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            password: hash,
-          });
-          // save user
-          newUser.save().then((user) => {
-            const jwt = utils.issueJWT(user);
-            res.status(201).json({
-              msg: 'Your account has been created successfully.',
-              user,
-              token: jwt.token,
-              expiresIn: jwt.expiresIn,
+  User.findOne({ email: email })
+    .then((user) => {
+      if (!user) {
+        bcrypt.hash(password, 10).then((hash) => {
+          if (hash) {
+            // Insert user into db
+            const newUser = new User({
+              firstName: firstName,
+              lastName: lastName,
+              email: email,
+              password: hash,
             });
-          });
-        } else {
-          res.status(409).json({
-            msg:
-              'An error occured when creating your account. Refresh your browser and try again.',
-          });
-        }
+            // save user
+            newUser.save().then((user) => {
+              const jwt = utils.issueJWT(user);
+              res.status(201).json({
+                msg: 'Your account has been created successfully.',
+                user,
+                token: jwt.token,
+                expiresIn: jwt.expiresIn,
+              });
+            });
+          } else {
+            res.status(409).json({
+              msg:
+                'An error occured when creating your account. Refresh your browser and try again.',
+            });
+          }
+        });
+      } else {
+        res.status(409).json({
+          msg: 'A user with a similar email address already exists.',
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error: error,
       });
-    } else {
-      res.status(409).json({
-        msg: 'A user with a similar email address already exists.',
-      });
-    }
-  });
+    });
 };
 
 exports.login = (req, res, next) => {
