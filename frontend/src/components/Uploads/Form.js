@@ -5,11 +5,13 @@ import PropTypes from "prop-types";
 
 import { MDBBtn, MDBIcon } from "mdbreact";
 import { addPrediction } from "../../actions/predictions";
+import Spinner from "../Layout/Spinner";
 
 export class Form extends Component {
   state = {
     image: "",
     prediction: "",
+    loading: false,
   };
 
   static propTypes = {
@@ -28,6 +30,7 @@ export class Form extends Component {
 
   getPrediction = () => {
     console.log("Predictor Called");
+    this.setState({ loading: true });
     const { image } = this.state;
     let form = new FormData();
     form.append("image", image);
@@ -40,14 +43,16 @@ export class Form extends Component {
       .then((res) => {
         this.setState({ prediction: res.data["prediction"] });
         console.log("Prediction Generated");
+        this.setState({ loading: false });
       })
       .catch((err) => {
         console.log(err);
       });
+    // this.setState({ loading: false });
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.image !== this.state.image) {
+    if (prevState.image !== this.state.image && this.state.image !== "") {
       this.getPrediction();
     }
   }
@@ -59,30 +64,39 @@ export class Form extends Component {
     formData.append("prediction", prediction);
     formData.append("image", image);
     this.props.addPrediction(formData);
+    this.setState({
+      image: "",
+      prediction: "",
+      loading: false,
+    });
   };
 
   render() {
-    // const { image } = this.state;
+    const { loading } = this.state;
     return (
       <div>
         <input
           style={{ display: "none" }}
-          type='file'
-          name='image'
+          type="file"
+          name="image"
           onChange={this.onChange}
           ref={(fileInput) => (this.fileInput = fileInput)}
           required
         />
-        <div className='btn-toolbar'>
-          <MDBBtn color='purple' onClick={() => this.fileInput.click()}>
-            <MDBIcon style={{ marginRight: "5px" }} icon='upload' />
-            Pick a File
-          </MDBBtn>
-          <MDBBtn color='success' type='button' onClick={this.onSubmit}>
-            <MDBIcon style={{ marginRight: "5px" }} icon='cloud' />
-            Upload
-          </MDBBtn>
-        </div>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <div className="btn-toolbar">
+            <MDBBtn color="purple" onClick={() => this.fileInput.click()}>
+              <MDBIcon style={{ marginRight: "5px" }} icon="upload" />
+              Pick a File
+            </MDBBtn>
+            <MDBBtn color="success" type="button" onClick={this.onSubmit}>
+              <MDBIcon style={{ marginRight: "5px" }} icon="cloud" />
+              Upload
+            </MDBBtn>
+          </div>
+        )}
       </div>
     );
   }

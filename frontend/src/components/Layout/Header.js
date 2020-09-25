@@ -57,18 +57,18 @@ class Header extends React.Component {
     const authLinks = (
       <Fragment>
         <MDBNavItem>
-          <MDBNavLink className='purple-text' to='/uploads'>
-            <MDBIcon icon='chalkboard-teacher' className='purple-text mr-1' />
+          <MDBNavLink className="purple-text" to="/uploads">
+            <MDBIcon icon="chalkboard-teacher" className="purple-text mr-1" />
             My Uploads
           </MDBNavLink>
         </MDBNavItem>
         <MDBNavItem>
           <MDBNavLink
             onClick={this.props.logout}
-            className='purple-text'
-            to='/logout'
+            className="purple-text"
+            to="/logout"
           >
-            <MDBIcon icon='user-lock' className='purple-text' /> Logout
+            <MDBIcon icon="user-lock" className="purple-text" /> Logout
           </MDBNavLink>
         </MDBNavItem>
       </Fragment>
@@ -77,13 +77,13 @@ class Header extends React.Component {
     const guestLinks = (
       <Fragment>
         <MDBNavItem>
-          <MDBNavLink to='/login' className='purple-text'>
-            <MDBIcon icon='user-check' className='purple-text' /> Login
+          <MDBNavLink to="/login" className="purple-text">
+            <MDBIcon icon="user-check" className="purple-text" /> Login
           </MDBNavLink>
         </MDBNavItem>
         <MDBNavItem>
-          <MDBNavLink to='/register' className='purple-text'>
-            <MDBIcon icon='user-plus' className='purple-text' />
+          <MDBNavLink to="/register" className="purple-text">
+            <MDBIcon icon="user-plus" className="purple-text" />
             Register
           </MDBNavLink>
         </MDBNavItem>
@@ -91,19 +91,19 @@ class Header extends React.Component {
     );
 
     const guestTagline = (
-      <div className='tag'>
-        <h6 className='mb-4 white-text'>
+      <div className="tag">
+        <h6 className="mb-4 white-text">
           CropDoc helps farmers better diagnose their plants for pests and
           diseses. Sign up for free today.
         </h6>
-        <MDBBtn color='purple'>
-          <MDBNavLink to='/register' className='white-text'>
-            <MDBIcon color='white' icon='user-plus' /> Sign Up
+        <MDBBtn color="purple">
+          <MDBNavLink to="/register" className="white-text">
+            <MDBIcon color="white" icon="user-plus" /> Sign Up
           </MDBNavLink>
         </MDBBtn>
-        <p className='sm whitee-text'>
+        <p className="sm whitee-text">
           Have an account?
-          <a href='/login' color='purple-text'>
+          <a href="/login" color="purple-text">
             Login
           </a>
         </p>
@@ -111,8 +111,8 @@ class Header extends React.Component {
     );
 
     const authTagline = (
-      <div className='tag'>
-        <h6 className='mb-4 white-text '>Get Started Right Here!!</h6>
+      <div className="tag">
+        <h6 className="mb-4 white-text ">Get Started Right Here!!</h6>
         <Form />
       </div>
     );
@@ -120,19 +120,19 @@ class Header extends React.Component {
     const { collapsed } = this.state;
     const overlay = (
       <div
-        id='sidenav-overlay'
+        id="sidenav-overlay"
         style={{ backgroundColor: "transparent" }}
         onClick={this.handleTogglerClick}
       />
     );
     return (
-      <div id='wrapper'>
+      <div id="wrapper">
         <div>
           <MDBNavbar
-            color='white'
+            color="white"
             dark
-            expand='md'
-            fixed='top'
+            expand="md"
+            fixed="top"
             scrolling
             transparent
           >
@@ -140,20 +140,20 @@ class Header extends React.Component {
               <MDBNavbarBrand
                 style={{ paddingTop: "0px", paddingBottom: "0px" }}
               >
-                <MDBNavLink to='/'>
-                  <img src={Logo} alt='MDB' className='white-text' />
+                <MDBNavLink to="/">
+                  <img src={Logo} alt="MDB" className="white-text" />
                 </MDBNavLink>
               </MDBNavbarBrand>
               <MDBNavbarToggler
-                className='purple'
+                className="purple"
                 onClick={this.handleTogglerClick}
               />
               <MDBCollapse isOpen={collapsed} navbar>
                 <MDBNavbarNav left></MDBNavbarNav>
                 <MDBNavbarNav right>
                   <MDBNavItem active>
-                    <MDBNavLink to='/' className='purple-text'>
-                      <MDBIcon className='purple-text' icon='home'>
+                    <MDBNavLink to="/" className="purple-text">
+                      <MDBIcon className="purple-text" icon="home">
                         Home
                       </MDBIcon>
                     </MDBNavLink>
@@ -165,19 +165,19 @@ class Header extends React.Component {
           </MDBNavbar>
           {collapsed && overlay}
         </div>
-        <MDBView className='bg-img'>
-          <MDBMask className='rgba-black-light' />
+        <MDBView className="bg-img">
+          <MDBMask className="rgba-black-light" />
           <MDBContainer
-            className='d-flex justify-content-center align-items-center'
+            className="d-flex justify-content-center align-items-center"
             style={{ height: "100%", width: "100%", paddingTop: "4rem" }}
           >
             <MDBRow>
-              <MDBCol md='12' className='mb-4 white-text text-center'>
-                <h1 className='h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 '>
+              <MDBCol md="12" className="mb-4 white-text text-center">
+                <h1 className="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 ">
                   CropDoc
                 </h1>
-                <hr className='hr-light my-4' />
-                <div className='authlinks'>
+                <hr className="hr-light my-4" />
+                <div className="authlinks">
                   {isAuthenticated ? authTagline : guestTagline}
                 </div>
               </MDBCol>

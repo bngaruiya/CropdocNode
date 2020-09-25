@@ -4,19 +4,15 @@ const utils = require('../utils/utils');
 const jwt = require('jsonwebtoken');
 
 exports.authUser = (req, res, next) => {
-  console.log(req.headers);
   if (req.headers && req.headers.authorization) {
     const authorization = req.headers.authorization.split(' ')[1];
-    console.log(authorization);
     try {
       decoded = jwt.verify(authorization, process.env.JWT_SECRET);
-      console.log(decoded);
     } catch (e) {
       return res.status(401).send('Invalid User. Cannot Load');
     }
     const userId = decoded.sub;
     User.findOne({ _id: userId }).then((user) => {
-      console.log(user);
       res.status(200).json({
         user,
         msg: 'User Loaded Successfully',
@@ -26,7 +22,6 @@ exports.authUser = (req, res, next) => {
 };
 
 exports.signup = (req, res, next) => {
-  console.log(req.body);
   const { firstName, lastName, email, password } = req.body;
   User.findOne({ email: email })
     .then((user) => {
