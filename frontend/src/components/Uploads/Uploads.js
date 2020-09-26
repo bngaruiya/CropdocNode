@@ -14,42 +14,43 @@ export class Uploads extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
-      <div className='section'>
-        <h2 className='title'>Recent User Uploads</h2>
-        <MDBRow className='card-section'>
+      <div className="section">
+        <h2 className="title">Recent User Uploads</h2>
+        <MDBRow className="card-section">
           {this.props.predictions.map((prediction) => (
             <MDBCol
               key={prediction._id}
-              lg='4'
-              md='12'
-              className='mb-lg-0 mb-4'
+              lg="4"
+              md="12"
+              className="mb-lg-0 mb-4"
             >
-              <MDBView hover className='rounded z-depth-2 mb-4' waves>
+              <MDBView hover className="rounded z-depth-2 mb-4" waves>
                 <img
-                  className='img-fluid'
+                  className="img-fluid"
                   src={prediction.imageUrl}
-                  alt='user upload'
+                  alt="user upload"
                 />
-                <MDBMask overlay='white-slight' />
+                <MDBMask overlay="white-slight" />
               </MDBView>
-              <p className='dark-grey-text'>
+              <p className="dark-grey-text">
                 The photo indicates your crop might have a{" "}
                 {prediction.prediction} infection.
               </p>
               <MDBBtn
                 // onClick={this.props.deletePrediction.bind(this, prediction.id)}
-                color='green'
+                color="green"
                 rounded
-                size='md'
+                size="md"
               >
                 Read More...
               </MDBBtn>
               <MDBBtn
                 // onClick={this.props.deletePrediction.bind(this, prediction.id)}
-                color='pink'
+                color="pink"
                 rounded
-                size='md'
+                size="md"
               >
                 Delete
               </MDBBtn>

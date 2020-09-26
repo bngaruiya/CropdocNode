@@ -1,6 +1,7 @@
 const aws = require('aws-sdk');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
+const s3Storage = require('multer-sharp-s3');
 
 const s3 = new aws.S3();
 
@@ -20,10 +21,14 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer({
   fileFilter,
-  storage: multerS3({
+  storage: s3Storage({
     acl: 'public-read',
     s3,
-    bucket: process.env.S3_BUCKET,
+    Bucket: process.env.S3_BUCKET,
+    resize: {
+      width: 256,
+      height: 256,
+    },
     metadata: function (req, file, cb) {
       cb(null, { fieldName: file.originalname });
     },

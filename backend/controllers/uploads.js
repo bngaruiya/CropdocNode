@@ -3,7 +3,7 @@ const deleteS3Upload = require('../middleware/deleteUpload');
 
 exports.createUpload = (req, res, next) => {
   const newUpload = new Upload({
-    imageUrl: req.file.location,
+    imageUrl: req.file.Location,
     prediction: req.body.prediction,
     postedBy: req.user._id,
   });
@@ -58,6 +58,8 @@ exports.deleteUpload = (req, res, next) => {
 
 exports.getAllUploads = (req, res, next) => {
   Upload.find({ postedBy: req.user._id })
+    .populate('postedBy')
+    .sort({ createdAt: -1 })
     .then((uploads) => {
       res.status(200).json(uploads);
     })
