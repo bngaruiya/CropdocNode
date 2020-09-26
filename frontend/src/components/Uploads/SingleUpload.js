@@ -1,13 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
+import Map from "../Map/Map";
 
 class SingleUpload extends Component {
   render() {
     const { prediction } = this.props;
     return (
-      <div>
-        <h4>{prediction.prediction}</h4>
-      </div>
+      <Fragment>
+        <Map />
+        <div>
+          <h4>{prediction.prediction}</h4>
+        </div>
+      </Fragment>
     );
   }
 }
