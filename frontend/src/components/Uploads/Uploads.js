@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getPredictions } from "../../actions/predictions";
-import { MDBRow, MDBCol, MDBMask, MDBView, MDBBtn } from "mdbreact";
+import { MDBRow, MDBCol, MDBMask, MDBView, MDBBtn, MDBLink } from "mdbreact";
 
 export class Uploads extends Component {
   static propTypes = {
@@ -14,7 +14,6 @@ export class Uploads extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="section">
         <h2 className="title">Recent User Uploads</h2>
@@ -38,14 +37,16 @@ export class Uploads extends Component {
                 The photo indicates your crop might have a{" "}
                 {prediction.prediction} infection.
               </p>
-              <MDBBtn
-                // onClick={this.props.deletePrediction.bind(this, prediction.id)}
-                color="green"
-                rounded
-                size="md"
-              >
-                Read More...
-              </MDBBtn>
+              <MDBLink to={`/uploads/` + prediction._id}>
+                <MDBBtn
+                  // onClick={this.detailView(this, prediction)}
+                  color="green"
+                  rounded
+                  size="md"
+                >
+                  Read More...
+                </MDBBtn>
+              </MDBLink>
               <MDBBtn
                 // onClick={this.props.deletePrediction.bind(this, prediction.id)}
                 color="pink"
