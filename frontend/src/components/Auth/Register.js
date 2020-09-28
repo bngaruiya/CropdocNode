@@ -114,7 +114,7 @@ class Register extends Component {
 
   render() {
     if (this.props.isAuthenticated) {
-      return <Redirect to='/' />;
+      return <Redirect to="/" />;
     }
     const {
       firstName,
@@ -125,172 +125,172 @@ class Register extends Component {
       isError,
     } = this.state;
     return (
-      <MDBContainer id='wrapper' className='d-flex justify-content-center'>
+      <MDBContainer id="wrapper" className="d-flex justify-content-center">
         <MDBRow>
           <MDBCol>
             <MDBCard>
-              <MDBCardBody className='mx-4'>
-                <div className='text-center'>
-                  <h3 className='green-text mb-5'>
+              <MDBCardBody className="mx-4">
+                <div className="text-center">
+                  <h3 className="green-text mb-5">
                     <strong>Sign Up</strong>
                   </h3>
                 </div>
                 <div>
                   <MDBInput
-                    label='First Name'
+                    label="First Name"
                     group
                     className={
                       isError.firstName.length > 0
                         ? "is-invalid form-control"
                         : "form-control"
                     }
-                    type='text'
+                    type="text"
                     validate
-                    name='firstName'
+                    name="firstName"
                     value={firstName}
                     onChange={this.onChange}
                   />
                   {isError.firstName.length > 0 && (
-                    <span className='invalid-feedback'>
+                    <span className="invalid-feedback">
                       {isError.firstName}
                     </span>
                   )}
                 </div>
                 <div>
                   <MDBInput
-                    label='Last Name'
+                    label="Last Name"
                     group
                     className={
                       isError.email.length > 0
                         ? "is-invalid form-control"
                         : "form-control"
                     }
-                    type='text'
+                    type="text"
                     validate
-                    name='lastName'
+                    name="lastName"
                     value={lastName}
                     onChange={this.onChange}
                   />
                   {isError.lastName.length > 0 && (
-                    <span className='invalid-feedback'>{isError.lastName}</span>
+                    <span className="invalid-feedback">{isError.lastName}</span>
                   )}
                 </div>
                 <div>
                   <MDBInput
-                    label='Email'
+                    label="Email"
                     group
                     className={
                       isError.email.length > 0
                         ? "is-invalid form-control"
                         : "form-control"
                     }
-                    type='email'
+                    type="email"
                     validate
-                    name='email'
+                    name="email"
                     value={email}
                     onChange={this.onChange}
                   />
                   {isError.email.length > 0 && (
-                    <span className='invalid-feedback'>{isError.email}</span>
+                    <span className="invalid-feedback">{isError.email}</span>
                   )}
                 </div>
                 <div>
                   <MDBInput
-                    label='Password'
+                    label="Password"
                     group
                     className={
                       isError.password.length > 0
                         ? "is-invalid form-control"
                         : "form-control"
                     }
-                    type='password'
+                    type="password"
                     validate
-                    containerClass='mb-0'
-                    name='password'
+                    containerClass="mb-0"
+                    name="password"
                     value={password}
                     onChange={this.onChange}
                   />
                   {isError.password.length > 0 && (
-                    <span className='invalid-feedback'>{isError.password}</span>
+                    <span className="invalid-feedback">{isError.password}</span>
                   )}
                 </div>
                 <div>
                   <MDBInput
-                    label='Confirm Password'
+                    label="Confirm Password"
                     group
                     className={
                       isError.password2.length > 0
                         ? "is-invalid form-control"
                         : "form-control"
                     }
-                    type='password'
+                    type="password"
                     validate
-                    containerClass='mb-0'
-                    name='password2'
+                    containerClass="mb-0"
+                    name="password2"
                     value={password2}
                     onChange={this.onChange}
                   />
                   {isError.password2.length > 0 && (
-                    <span className='invalid-feedback'>
+                    <span className="invalid-feedback">
                       {isError.password2}
                     </span>
                   )}
                 </div>
-                <p className='font-small green-text d-flex justify-content-end pb-3'>
+                <p className="font-small green-text d-flex justify-content-end pb-3">
                   Forgot
-                  <a href='#!' className='green-text ml-1'>
+                  <a href="#!" className="green-text ml-1">
                     Password?
                   </a>
                 </p>
-                <div className='text-center mb-3'>
+                <div className="text-center mb-3">
                   <MDBBtn
-                    type='submit'
-                    gradient='purple'
+                    type="submit"
+                    gradient="purple"
                     rounded
                     onClick={this.onSubmit}
-                    className='btn-block z-depth-1a'
+                    className="btn-block z-depth-1a"
                   >
                     Sign Up
                   </MDBBtn>
                 </div>
-                <p className='font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2'>
+                <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
                   or Sign Up with:
                 </p>
-                <div className='row my-3 d-flex justify-content-center'>
+                <div className="row my-3 d-flex justify-content-center">
                   <MDBBtn
-                    type='button'
-                    color='white'
+                    type="button"
+                    color="white"
                     rounded
-                    className='mr-md-3 z-depth-1a'
+                    className="mr-md-3 z-depth-1a"
                   >
                     <MDBIcon
                       fab
-                      icon='facebook-f'
-                      className='purple-text text-center'
+                      icon="facebook-f"
+                      className="purple-text text-center"
                     />
                   </MDBBtn>
                   <MDBBtn
-                    type='button'
-                    color='white'
+                    type="button"
+                    color="white"
                     rounded
-                    className='mr-md-3 z-depth-1a'
+                    className="mr-md-3 z-depth-1a"
                   >
-                    <MDBIcon fab icon='twitter' className='purple-text' />
+                    <MDBIcon fab icon="twitter" className="purple-text" />
                   </MDBBtn>
                   <MDBBtn
-                    type='button'
-                    color='white'
+                    type="button"
+                    color="white"
                     rounded
-                    className='z-depth-1a'
+                    className="z-depth-1a"
                   >
-                    <MDBIcon fab icon='google-plus-g' className='purple-text' />
+                    <MDBIcon fab icon="google-plus-g" className="purple-text" />
                   </MDBBtn>
                 </div>
               </MDBCardBody>
-              <MDBModalFooter className='mx-5 pt-3 mb-1'>
-                <p className='font-small grey-text d-flex justify-content-end'>
+              <MDBModalFooter className="mx-5 pt-3 mb-1">
+                <p className="font-small grey-text d-flex justify-content-end">
                   Have an account?
-                  <Link className='green-text ml-1' to='/login'>
+                  <Link className="green-text ml-1" to="/login">
                     Sign In
                   </Link>
                 </p>

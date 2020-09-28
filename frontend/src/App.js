@@ -10,6 +10,7 @@ import Footer from "./components/Layout/Footer";
 import Home from "./components/Home/Home";
 import Uploads from "./components/Uploads/Uploads";
 import SingleUpload from "./components/Uploads/SingleUpload";
+// import BusinessForm from "./components/Business/Auth/BusinessForm";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Logout from "./components/Auth/Logout";
@@ -27,6 +28,7 @@ class App extends Component {
             <Header />
             <div className="app-container main mainRaised">
               <Switch>
+                {/* <Route exact path="/" component={BusinessForm} /> */}
                 <Route exact path="/" component={Home} />
                 <Route exact path="/uploads" component={Uploads} />
                 <Route
